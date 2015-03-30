@@ -1,4 +1,4 @@
-ZendSkeletonApplication
+Lakari Home
 =======================
 
 Introduction
