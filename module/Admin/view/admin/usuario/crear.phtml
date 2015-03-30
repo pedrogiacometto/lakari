@@ -1,0 +1,61 @@
+<strong>Module:</strong>       Admin &raquo;
+<strong>Controller:</strong>   Usuario &raquo;
+<strong>Action:</strong>       Crear
+
+<h2><?php echo $this->titulo ?></h2>
+<?php
+//Añadir Validator Bootstrap
+
+$usuarioPassword = $this->usuarioForm->get('usuarioPassword');
+$usuarioPassword->setAttribute('data-minlength', 4);
+$usuarioPassword->setAttribute('maxlength', 8);
+
+$usuarioPassword2 = $this->usuarioForm->get('usuarioPassword2');
+$usuarioPassword2->setAttribute('data-match', '#inputPassword');
+$usuarioPassword2->setAttribute('data-match-error', 'No Coincide');
+?>
+<div class="row ">
+    <form class="col-lg-6" data-toggle="validator" role="form" action="<?php echo $this->basePath($this->usuarioForm->getAttribute('action')); ?>" method="post">
+        <div class="form-group">
+            <label for="inputName" class="control-label">Name</label>
+            <?php echo $this->formInput($this->usuarioForm->get('usuarioNombre')); ?>
+            <div class="help-block with-errors">
+                <?php echo $this->formElementErrors($this->usuarioForm->get('usuarioNombre')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputApellido" class="control-label">Apellido</label>
+            <?php echo $this->formInput($this->usuarioForm->get('usuarioApellido')); ?>
+            <div class="help-block with-errors">
+                <?php echo $this->formElementErrors($this->usuarioForm->get('usuarioApellido')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="control-label">Email</label>
+            <?php echo $this->formInput($this->usuarioForm->get('usuarioEmail')); ?>
+            <div class="help-block with-errors">
+                <?php echo $this->formElementErrors($this->usuarioForm->get('usuarioEmail')); ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group col-sm-6">
+                <label for="inputPassword" class="control-label">Password</label>
+                <?php echo $this->formInput($this->usuarioForm->get('usuarioPassword')); ?>
+                <div class="help-block with-errors"><?php echo $this->formElementErrors($this->usuarioForm->get('usuarioPassword')); ?></div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="inputPassword" class="control-label">Repeat</label>
+                <?php echo $this->formInput($this->usuarioForm->get('usuarioPassword2')); ?>
+                <div class="help-block with-errors"><?php echo $this->formElementErrors($this->usuarioForm->get('usuarioPassword2')); ?></div>
+            </div>
+        </div>
+
+
+        <div class="form-group">    
+            <?php echo $this->formInput($this->usuarioForm->get('usuarioSubmit')); ?>
+
+        </div>
+    </form>
+
+</div>

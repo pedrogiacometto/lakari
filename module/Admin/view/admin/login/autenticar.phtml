@@ -1,0 +1,14 @@
+<strong>Module:</strong>       Admin &raquo;
+<strong>Controller:</strong>   Login &raquo;
+<strong>Action:</strong>       Autenticar
+
+<h2><?php echo $this->titulo ?></h2>
+
+
+<?php if($this->login):?>
+<div class="alert alert-success" role="alert"><b>Login Correcto</b></div>
+<?php else: ?>
+<div class="alert alert-danger" role="alert">Login Incorrecto</div>
+<?php endif; ?>
+
+
